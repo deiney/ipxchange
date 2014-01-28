@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'marketplace/style.css' %}" />
+
+<h1>List users</h1>
+
+
+{% if user_list %}
+	Total: {{ user_list.count }} users in the system<br />
+    <ul>
+    {% for user in user_list %}
+		<li><a href="{% url 'marketplace:user_detail' user.id %}">{{ user.first_name }} {{ user.last_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users in the system.</p>
+{% endif %}
+
+<a href="{% url 'marketplace:index' %}">Home</a>
+

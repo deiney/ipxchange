@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'marketplace/style.css' %}" />
+
+<h1>Welcome to ipXchange</h1>
+
+<div class="registration">
+	<span class="login">Login</span>
+	<span class="register">Register</span>
+	<span class="listall"><a href="{% url 'marketplace:users' %}">Registered Users</a></span>
+</div>
+
+<hr />
+<div class="search">
+	<form action="{% url 'marketplace:search_results' %}" method="get">
+		{{ form.non_field_errors }}
+		<div class="fieldWrapper">
+			<label for="id_q">My Query:</label>
+			{{ form.q }}
+			<input type="submit" value="Search" />
+		</div>
+		{{ form.q.errors }}
+	
+	</form>
+</div>
+
+{% if error_message %}<p><strong>Error: {{ error_message }}</strong></p>{% endif %}
