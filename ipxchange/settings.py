@@ -64,18 +64,18 @@ WSGI_APPLICATION = 'ipxchange.wsgi.application'
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default='postgres://postgres:database77@localhost:5432/postgres')}
 
-DATABASES = {
-    'default': {
+#DATABASES = {
+#    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-		'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'database77',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+#        'ENGINE':'django.db.backends.postgresql_psycopg2',
+#		'NAME': 'postgres',
+#        'USER': 'postgres',
+#        'PASSWORD': 'database77',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
 
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default='postgres://postgres:database77@localhost:5432/postgres')}
