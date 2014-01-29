@@ -56,16 +56,21 @@ WSGI_APPLICATION = 'ipxchange.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# Parse database configuration from $DATABASE_URL
+DATABASES = {}
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
 DATABASES = {
     'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE':'django.db.backends.postgresql_psycopg2',
-		'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'database77',
-        'HOST': 'localhost',
-        'PORT': '5432',
+#		'NAME': 'postgres',
+#        'USER': 'postgres',
+#        'PASSWORD': 'database77',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
     }
 }
 
@@ -98,11 +103,6 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/marketplace/media/'
-
-
-# Parse database configuration from $DATABASE_URL
-#import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
